@@ -34,7 +34,7 @@
     let gameInterval = null;
     const createField = () => {
         let number = 0
-        const a = setInterval(() => {
+        const timer = setInterval(() => {
             number += 1
             count.innerHTML = number
             if(number === 4) {
@@ -42,7 +42,7 @@
             }
         }, 1000)
         setTimeout(() => {
-            clearInterval(a)
+            clearInterval(timer)
             for (let i = 0; i < 3; i += 1) {
                 ctx.drawImage(buracoImg, currentPosX += 20, currentPosY += 20);
                 positions[index] = { 
