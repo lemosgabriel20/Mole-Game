@@ -11,11 +11,15 @@
 <body>
     <canvas width="640px" height="480px" id="myCanvas"></canvas>
     <h1>SCORE: <span id="scoreText"></span></h1>
-    <div>
-      <h3>Dificuldade</h3>
-      <button type="button" id="easy_button">Fácil</button>
-      <button type="button">Médio</button>
-      <button type="button">Difícil</button>
+    <button type="button" id="menu_return">Menu</button>
+    <button type="button" id="play">Play</button>
+    <div id="overlay">
+      <div id="menu">
+        <h3>Dificuldade</h3>
+        <button type="button" id="easy_button">Fácil</button>
+        <button type="button" id="medium_button">Médio</button>
+        <button type="button" id="hard_button">Difícil</button>
+      </div>
     </div>
     <script type="module" src="game.js"></script>
 </body>
