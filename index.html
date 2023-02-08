@@ -9,14 +9,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <header id="header">
+    <h1>Eh Mole Game</h1>
+    <div id="header_btns">
+      <button type="button" class="header_btn" id="menu_return">Menu</button>
+    </div>
+  </header>
+  <main id="game">
     <canvas width="640px" height="480px" id="myCanvas"></canvas>
-    <h1>SCORE: <span id="scoreText"></span></h1>
-    <div>
+    <h1 class="scoreText">SCORE: <span id="scoreText"></span></h1>
+  </main>
+  <div class="overlay">
+    <div class="menu">
+      <button type="button" class="header_btn" id="play">Play</button>
       <h3>Dificuldade</h3>
       <button type="button" id="easy_button">Fácil</button>
-      <button type="button">Médio</button>
-      <button type="button">Difícil</button>
+      <button type="button" id="medium_button">Médio</button>
+      <button type="button" id="hard_button">Difícil</button>
+      <button type="button" id="close_button">X</button>
     </div>
-    <script type="module" src="game.js"></script>
+    </div>
+    <script type="module" src="play.js"></script>
 </body>
 </html>
