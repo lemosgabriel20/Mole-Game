@@ -26,6 +26,10 @@ body {
 .header_btn {
     height: 35px;
     width: 70px;
+    display: flex;
+    position: absolute;
+    margin-top: 3%;
+    justify-content: center;
 }
 
 #game {
@@ -58,7 +62,8 @@ canvas {
 
 .menu {
     background: #fff;
-    width: 480px;
+    width: 640px;
+    height: 500px;
     border-radius: 8px;
     padding: 32px;
     text-align: center;
@@ -80,4 +85,10 @@ canvas {
     width: 25px;
     top: 8px;
     right: 8px;
+}
+
+#count {
+    display: flex;
+    position: absolute;
+    margin-top: 25%;
 }

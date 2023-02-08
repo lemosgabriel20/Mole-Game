@@ -1,4 +1,3 @@
-
     const moleImg = new Image();
     const buracoImg = new Image();
     const canvas = document.querySelector('#myCanvas');
@@ -10,6 +9,7 @@
     const easy = document.querySelector('#easy_button')
     const medium = document.querySelector('#medium_button')
     const hard = document.querySelector('#hard_button')
+    const count = document.querySelector('#count')
     let difficulty = 1500;
     buracoImg.src = "../images/buraco.png";
     moleImg.src = "../images/toupeirinha.png";
@@ -33,31 +33,42 @@
     let globalMolePosition = {};
     let gameInterval = null;
     const createField = () => {
-      for (let i = 0; i < 3; i += 1) {
-       ctx.drawImage(buracoImg, currentPosX += 20, currentPosY += 20);
-       positions[index] = { 
-         initialX: currentPosX, 
-         initialY: currentPosY, 
-         finalX: currentPosX + sizeX, 
-         finalY: currentPosY + sizeY 
-       };
-       index += 1;
-     
-       for (let j = 0; j < 2; j += 1) {
-         currentPosY += offsetY;
-         ctx.drawImage(buracoImg, currentPosX, currentPosY);
-         positions[index] = { 
-           initialX: currentPosX, 
-           initialY: currentPosY, 
-           finalX: currentPosX + sizeX, 
-           finalY: currentPosY + sizeY 
-         };
-         index += 1;
-       }
-       currentPosY =  initialPosY;
-       currentPosX += offsetX;
-     }
-     canvas.style.backgroundImage = "url(../images/grass.png)";
+        let number = 0
+        const a = setInterval(() => {
+            number += 1
+            count.innerHTML = number
+            if(number === 4) {
+                count.style.display = 'none'
+            }
+        }, 1000)
+        setTimeout(() => {
+            clearInterval(a)
+            for (let i = 0; i < 3; i += 1) {
+                ctx.drawImage(buracoImg, currentPosX += 20, currentPosY += 20);
+                positions[index] = { 
+                  initialX: currentPosX, 
+                  initialY: currentPosY, 
+                  finalX: currentPosX + sizeX, 
+                  finalY: currentPosY + sizeY 
+                };
+                index += 1;
+              
+                for (let j = 0; j < 2; j += 1) {
+                  currentPosY += offsetY;
+                  ctx.drawImage(buracoImg, currentPosX, currentPosY);
+                  positions[index] = { 
+                    initialX: currentPosX, 
+                    initialY: currentPosY, 
+                    finalX: currentPosX + sizeX, 
+                    finalY: currentPosY + sizeY 
+                  };
+                  index += 1;
+                }
+                currentPosY =  initialPosY;
+                currentPosX += offsetX;
+              }
+              canvas.style.backgroundImage = "url(../images/grass.png)";
+        }, 4000)
    }
 
 
@@ -74,7 +85,6 @@
       globalMolePosition = { initialX, initialY, finalX, finalY };
       ctx.drawImage(moleImg, initialX + 2.5, initialY - 16);
       const timeoutID = setTimeout((() => {
-        //createField()
         ctx.clearRect(initialX, initialY - 20, 100, 140)
         ctx.drawImage(buracoImg, initialX, initialY);
         globalMolePosition = {}
@@ -96,12 +106,14 @@
       canvas.style.backgroundImage = "none";
       clearInterval(gameInterval);
       ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+      scoreText.innerHTML = 0
+      score = 0
     }
-
+    
     menuReturn.addEventListener('click', () => {
-      clearDisplay();
-      overlay.style.display = 'flex'
-      playButton.style.display = 'flex'
+        clearDisplay();
+        overlay.style.display = 'flex'
+        playButton.style.display = 'flex'
     })
 
     easy.addEventListener('click', () => {
