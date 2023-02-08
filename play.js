@@ -38,15 +38,6 @@ export const play = (difficulty) => {
     let currentPosY = initialPosY;
     let globalMolePosition = {};
     
-    // ctx generico
-    const setPath = (color, x, y, width, height) => {
-      ctx.beginPath();
-      ctx.rect(x, y, width, height);
-      ctx.fillStyle = color;
-      ctx.fill();
-      ctx.closePath();
-    }
-    
     // cria o campo do jogo
     const createField = () => {
        for (let i = 0; i < 3; i += 1) {
@@ -115,15 +106,5 @@ export const play = (difficulty) => {
           globalMolePosition = {};
           scoreText.innerHTML = score;
         }
-      });
-      
-    // sprite do cursor
-    /*
-    body.addEventListener('mousedown', () => {
-      body.style.cursor = "url(../images/hammerMove.png), auto";
-    })
-    
-    body.addEventListener('mouseup', () => {
-      body.style.cursor = "url(../images/hammerIdle.png), auto";
-    })*/
-    }
+    });
+}
