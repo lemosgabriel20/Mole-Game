@@ -25,11 +25,12 @@ hard.addEventListener('click', () => {
 
 const start = (difficulty) => {
   playButton.addEventListener('click', () => {
+    playButton.style.display = 'none'
     play(difficulty)
   })
 }
 
 menuReturn.addEventListener('click', () => {
   overlay.style.display = 'flex'
-  // play()
+  playButton.style.display = 'flex'
 })
