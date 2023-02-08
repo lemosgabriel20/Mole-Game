@@ -1,4 +1,4 @@
-export const play = () => {
+export const play = (difficulty) => {
     // instancias
     const moleImg = new Image();
     const buracoImg = new Image();
@@ -21,7 +21,7 @@ export const play = () => {
     const initialPosY = 80;
     const sizeX = 50;
     const sizeY = 50;
-    const displayMoleInterval = 1500;
+    const displayMoleInterval = difficulty;
     const clearMoleInterval = displayMoleInterval - 500;
     // const canvasWidth = canvas.offsetWidth;
     // const canvasHeight = canvas.offsetHeight;
