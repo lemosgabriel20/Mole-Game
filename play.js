@@ -33,11 +33,11 @@
     let globalMolePosition = {};
     let gameInterval = null;
     const createField = () => {
-        let number = 0
+        let number = 3
         const timer = setInterval(() => {
-            number += 1
+            number -= 1
             count.innerHTML = number
-            if(number === 4) {
+            if(number === 0) {
                 count.style.display = 'none'
             }
         }, 1000)
@@ -68,7 +68,7 @@
                 currentPosX += offsetX;
               }
               canvas.style.backgroundImage = "url(../images/grass.png)";
-        }, 4000)
+        }, 3000)
    }
 
 
