@@ -111,6 +111,8 @@
     }
     
     menuReturn.addEventListener('click', () => {
+        // tática de cafageste
+        document.location.reload(true)
         clearDisplay();
         overlay.style.display = 'flex'
         playButton.style.display = 'flex'
