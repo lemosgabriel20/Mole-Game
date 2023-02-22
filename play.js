@@ -1,4 +1,4 @@
-export const play = () => {
+export const play = (difficulty) => {
     // instancias
     const moleImg = new Image();
     const buracoImg = new Image();
@@ -21,7 +21,7 @@ export const play = () => {
     const initialPosY = 80;
     const sizeX = 50;
     const sizeY = 50;
-    const displayMoleInterval = 1500;
+    const displayMoleInterval = difficulty;
     const clearMoleInterval = displayMoleInterval - 500;
     // const canvasWidth = canvas.offsetWidth;
     // const canvasHeight = canvas.offsetHeight;
@@ -37,15 +37,6 @@ export const play = () => {
     let currentPosX = initialPosX;
     let currentPosY = initialPosY;
     let globalMolePosition = {};
-    
-    // ctx generico
-    const setPath = (color, x, y, width, height) => {
-      ctx.beginPath();
-      ctx.rect(x, y, width, height);
-      ctx.fillStyle = color;
-      ctx.fill();
-      ctx.closePath();
-    }
     
     // cria o campo do jogo
     const createField = () => {
@@ -115,15 +106,5 @@ export const play = () => {
           globalMolePosition = {};
           scoreText.innerHTML = score;
         }
-      });
-      
-    // sprite do cursor
-    /*
-    body.addEventListener('mousedown', () => {
-      body.style.cursor = "url(../images/hammerMove.png), auto";
-    })
-    
-    body.addEventListener('mouseup', () => {
-      body.style.cursor = "url(../images/hammerIdle.png), auto";
-    })*/
-    }
+    });
+}
